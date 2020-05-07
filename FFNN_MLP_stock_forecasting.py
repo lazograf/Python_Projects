@@ -35,7 +35,6 @@ column_reordering = ['High', 'Low', 'Open', 'Volume', 'Close']
 
 
 #Pandas method to swap column positions inside the dataframe
-
 dataframe = dataframe.reindex(columns=column_reordering)
 print(dataframe.head())
 
@@ -103,8 +102,9 @@ print("\n", "training set ONE sample FEATURES", "\n", trainX[1,:], "\n", "\n", "
 # "Sanity check"
 print(trainX.shape,trainY.shape)
 
-trainX[:2,:] # (!) 3-D array: In order to train the sequential model, I pass as input shape the second and third dimension, namely
-#the number of rows and columns
+trainX[:2,:] # (!) 3-D array: In order to train the sequential model, I pass as input shape the second and third dimension,
+#namely the number of rows and columns
+
 
 # MLP FFNN
 model = Sequential()
@@ -130,7 +130,6 @@ start = time.time()
 history = model.fit(trainX, trainY, epochs = 500 , batch_size= 32, shuffle=True ,validation_split = 0.15)
 
 print('training time : ', time.time() - start)
-
 
 
 
@@ -160,7 +159,6 @@ print('Root mean squared error on the test dataset: ', round(test_accuracy,3))
 trainY,testY = dataset_target[0:train_size+1], dataset_target[train_size+1:len(dataset)+1]
 
 # Plot
-
 trainPredictPlot = numpy.empty_like(dataset.Close.values)
 trainPredictPlot[:] = numpy.nan
 trainPredictPlot[look_back:len(trainPredict)+look_back] = trainPredict.flatten()
