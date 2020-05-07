@@ -1,4 +1,3 @@
-
 # Monte-Carlo Policy Gradient (REINFORCE)
 
 from keras.layers import Input, Dense
@@ -390,6 +389,7 @@ plt.show()
 
 
 
+
 #Alternative graph
 
 fig = plt.figure(figsize = (15,8))
@@ -401,5 +401,3 @@ plt.ylabel('IBM stock price')
 plt.xlabel('Observations')
 plt.legend(framealpha=1, shadow=True, borderpad=1)
 plt.show()
-
-
