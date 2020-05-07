@@ -1,4 +1,3 @@
-
 # LSTM
 
 import time
@@ -163,6 +162,7 @@ plt.show()
 
 
 
+
 #RNN
 
 import pandas_datareader.data as web
@@ -284,6 +284,7 @@ legend.get_frame().set_edgecolor('b')
 legend.get_frame().set_linewidth(0.4)
 
 plt.show()
+
 
 
 
@@ -417,7 +418,5 @@ legend.get_frame().set_edgecolor('b')
 legend.get_frame().set_linewidth(0.4)
 
 plt.show()
-
-
 
 
