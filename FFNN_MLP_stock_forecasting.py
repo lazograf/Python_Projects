@@ -99,11 +99,13 @@ testX, testY = create_dataset(test_f,test_t, look_back = look_back)
 
 print("\n", "training set ONE sample FEATURES", "\n", trainX[1,:], "\n", "\n", "training set ONE sample TARGET", testY[1])
 
+
 # "Sanity check"
 print(trainX.shape,trainY.shape)
 
 trainX[:2,:] # (!) 3-D array: In order to train the sequential model, I pass as input shape the second and third dimension,
 #namely the number of rows and columns
+
 
 
 # MLP FFNN
@@ -125,12 +127,13 @@ opt = SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True) #Adagrad(lr=0.001)
 
 model.compile(loss=tf.losses.huber_loss, optimizer= opt, metrics = ['mae'])
 
+
+
 start = time.time()
 
 history = model.fit(trainX, trainY, epochs = 500 , batch_size= 32, shuffle=True ,validation_split = 0.15)
 
 print('training time : ', time.time() - start)
-
 
 
 model.summary()
@@ -158,6 +161,8 @@ print('Root mean squared error on the test dataset: ', round(test_accuracy,3))
 
 trainY,testY = dataset_target[0:train_size+1], dataset_target[train_size+1:len(dataset)+1]
 
+
+
 # Plot
 trainPredictPlot = numpy.empty_like(dataset.Close.values)
 trainPredictPlot[:] = numpy.nan
@@ -166,6 +171,7 @@ trainPredictPlot[look_back:len(trainPredict)+look_back] = trainPredict.flatten()
 testPredictPlot = numpy.empty_like(dataset.Close.values)
 testPredictPlot[:] = numpy.nan
 testPredictPlot[len(trainPredict)+(look_back*2)+1:len(dataset)-1] = testPredict.flatten()
+
 
 
 # plot baseline and predictions
@@ -180,6 +186,5 @@ plt.plot(testPredictPlot, label = 'A.I. Test Data Price Predictions', linewidth 
 legend = plt.legend(fontsize = 12,frameon = True)
 legend.get_frame().set_edgecolor('b')
 legend.get_frame().set_linewidth(0.4)
-
 plt.show()
 
